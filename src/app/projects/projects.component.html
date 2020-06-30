@@ -1,0 +1,25 @@
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500&display=swap" rel="stylesheet">
+
+<ion-toolbar>
+  <ion-button fill="clear" color="dark" style="font-family: 'MoonReg';" [routerLink]="['/home']" type="md">DAXSTER</ion-button>
+  <p slot="end" style="font-family: 'IBM Plex Mono';">{{today | date:'h:mm:ss a'}}</p>
+</ion-toolbar>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-title style="font-family: 'IBM Plex Mono'; font-size: 20px; padding-top: 20px;">Notepad Application</ion-title>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-icon name="journal-outline" style="padding-top: 15px;"></ion-icon>
+      </ion-col>
+      <ion-col style="padding-top: 25px; font-family: 'IBM Plex Mono';" size="11.2">
+        <ion-text>This notepad application takes in the basic applications of using a notepad -- note-taking, saving notes, and showing more details (as adding the notes only displays the title).</ion-text>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-button color="dark" fill="clear" style="font-family: 'MoonReg';" [routerLink]="['/notepad']">Project Link</ion-button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,19 @@
+ion-avatar {
+  width: 150px;
+  height: 150px;
+}
+
+.img-center{
+  margin:0 auto;
+  margin-top: 150px;
+ }
+
+ .center {
+   margin:0 auto;
+ }
+
+:root[mode=ios] .moon,
+:root[mode=md] .moon{
+  --ion-font-family:  'Moon'!important;
+  font-family:  'Moon' !important;
+}
