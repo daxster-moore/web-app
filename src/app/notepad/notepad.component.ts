@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AlertController } from '@ionic/angular';
 
 export class Preview {
   title: string
@@ -27,7 +26,7 @@ export class NotepadComponent {
 
   // Notepad title and text data handling + display //
 
-  private data: Array<Preview> = []
+  data: Array<Preview> = []
   title: string
   text: string
 
