@@ -6,7 +6,7 @@ const routes: Routes = [
   { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomePageModule) },
   { path: 'projects', loadChildren: () => import('./projects/projects.module').then(m => m.ProjectsModule) },
   { path: 'notepad', loadChildren: () => import('./notepad/notepad.module').then(m => m.NotepadModule) },
-  { path: 'password-generator', loadChildren: () => import('./password-generator/password-generator.module').then(m => m.PasswordGeneratorModule) },
+  { path: 'password-manager', loadChildren: () => import('./password-manager/password-manager.module').then(m => m.PasswordManagerModule) },
 ];
 
 @NgModule({

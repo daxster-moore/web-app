@@ -5,7 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 
-import { PasswordGeneratorComponent } from './password-generator.component';
+import { PMGeneratorComponent } from './pmgenerator.component';
 
 @NgModule({
     imports: [
@@ -15,11 +15,11 @@ import { PasswordGeneratorComponent } from './password-generator.component';
         RouterModule.forChild([
             {
                 path: '',
-                component: PasswordGeneratorComponent
+                component: PMGeneratorComponent
             }
         ])
     ],
-    declarations: [PasswordGeneratorComponent],
+    declarations: [PMGeneratorComponent],
 
 })
-export class PasswordGeneratorModule { }
+export class PMGeneratorModule { }
