@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+
+
+export class newAccount {
+  email: string
+  password: string
+}
 
 @Component({
   selector: 'app-password-manager',
@@ -19,7 +24,7 @@ export class PasswordManagerComponent {
 
   public appPages = [
     {
-      title: 'Home',
+      title: 'Passwords',
       url: '/password-manager'
     },
     {
@@ -35,4 +40,41 @@ export class PasswordManagerComponent {
       url: '/projects'
     }
   ]
+
+  // show password menu //
+
+  newPassword: boolean
+
+  addInfo() {
+    this.newPassword = false
+  }
+
+  // account data handling //
+
+  data: Array<newAccount> = []
+  email: string
+  password: string
+  accountDetails: boolean
+  sharedState: boolean
+
+  addAccount() {
+    const display = new newAccount()
+    display.email = this.email
+    display.password = this.password   
+    if (display.password && display.password.length >= 8 && display.email && display.email.includes("@" && ".")) {
+      this.data.push(display)
+      this.newPassword = false
+    }
+    this.email = ''
+    this.password = ''
+  }
+
+  details() {
+    if (this.newPassword == true) {
+      this.accountDetails = false
+    }
+    else {
+      this.accountDetails = true
+    }
+  }
 }

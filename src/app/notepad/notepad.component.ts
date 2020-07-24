@@ -35,15 +35,14 @@ export class NotepadComponent {
   }
 
   addNote() {
-    const display = new Preview();
+    const display = new Preview()
     display.title = this.title
     display.text = this.text
     this.data.push(display)
   }
 
-  // When the moreInfo button is clicked, moreInfo() gets called //
-  // and the item.isShowText turns to true, indicating the text //
-  // (sub-note) is to be displayed //
+  // When the moreInfo button is clicked, moreInfo() gets called. //
+  // item.isShowText turns to true, indicating the text is to be displayed //
 
   moreInfo(item: Preview) {
     item.isShowText = !item.isShowText
