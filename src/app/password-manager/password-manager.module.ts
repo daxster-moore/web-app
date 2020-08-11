@@ -5,7 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 
-import { PasswordManagerComponent } from './password-manager.component';
+import { PasswordManagerComponent } from './password-manager.component'
 
 @NgModule({
     imports: [
@@ -15,7 +15,7 @@ import { PasswordManagerComponent } from './password-manager.component';
         RouterModule.forChild([
             {
                 path: '',
-                component: PasswordManagerComponent
+                component: PasswordManagerComponent,
             }
         ])
     ],

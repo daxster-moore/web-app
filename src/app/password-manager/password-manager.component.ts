@@ -29,11 +29,11 @@ export class PasswordManagerComponent {
     },
     {
       title: 'Password Generator',
-      url: '/password-generator/generator'
+      url: '/password-manager/generator'
     },
     {
       title: 'Options',
-      url: '/password-generator/options'
+      url: '/password-manager/options'
     },
     {
       title: 'Back to Projects',
@@ -70,11 +70,10 @@ export class PasswordManagerComponent {
   }
 
   details() {
-    if (this.newPassword == true) {
-      this.accountDetails = false
-    }
-    else {
-      this.accountDetails = true
-    }
+    this.accountDetails = false
+  }
+
+  closeDetails() {
+    this.accountDetails = false
   }
 }

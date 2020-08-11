@@ -7,6 +7,8 @@ const routes: Routes = [
   { path: 'projects', loadChildren: () => import('./projects/projects.module').then(m => m.ProjectsModule) },
   { path: 'notepad', loadChildren: () => import('./notepad/notepad.module').then(m => m.NotepadModule) },
   { path: 'password-manager', loadChildren: () => import('./password-manager/password-manager.module').then(m => m.PasswordManagerModule) },
+  { path: 'password-manager/generator', loadChildren: () => import('./password-manager/pmgenerator/pmgenerator.module').then(m => m.PMGeneratorModule) },
+  { path: 'password-manager/options', loadChildren: () => import('./password-manager/pmoptions/pmoptions.module').then(m => m.PMOptionsModule) },
 ];
 
 @NgModule({
