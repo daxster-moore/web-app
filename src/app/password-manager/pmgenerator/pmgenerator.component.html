@@ -20,11 +20,20 @@
       </ion-col>
       <ion-col>
         <ion-text style="font-family: 'IBM Plex Mono'">Password Generator (from 8 characters to 64 characters)</ion-text>
-        <ion-range min="8" max="64" step="1" debounce="750" pin="true" snaps="true" color="dark" (ionChange)="passLength()">
+        <ion-range min="8" max="64" step="1" debounce="750" pin="true" color="dark" (ionChange)="onChange($event)">
           <ion-label slot="start">8</ion-label>
           <ion-label slot="end">64</ion-label>
         </ion-range>
-        <ion-text style="font-family: 'IBM Plex Mono';" *ngFor="let item of data">{{item.charValue}}</ion-text>
+        <ion-text style="font-family: 'IBM Plex Mono';">{{inputtedNumber}}</ion-text>
+        <ion-row>
+          <ion-list>
+            <ion-list-header style="font-family: 'IBM Plex Mono'; font-size: 16px;">Options</ion-list-header>
+            <ion-item>
+              <ion-label style="font-size: 14px; font-family: 'IBM Plex Mono'">Add Special Characters (e.g. @, #, !, %)</ion-label>
+              <ion-checkbox slot="start"></ion-checkbox>
+            </ion-item>
+          </ion-list>
+        </ion-row>
       </ion-col>
     </ion-row>
   </ion-grid>
