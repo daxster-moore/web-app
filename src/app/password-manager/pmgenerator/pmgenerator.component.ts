@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import { generate } from 'generate-password-browser'
 
 export class Preview {
-  charValue: number
+  display: any
 }
 
 @Component({
@@ -42,14 +43,13 @@ export class PMGeneratorComponent {
   data: Array<Preview> = []
   inputtedNumber: number
 
-  randPass() {
-    const display = new Preview()
-    let chars = "abcdefghijklmnopqrstuvwxyz!@#$%^&*()-=_+{}[];:',./<>?ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    let pass = ""
-    for (let i = 0; i < length; i++) {
-      let x = Math.floor(Math.random() * chars.length)
-      pass += chars.charAt(x)
-    }
-    return pass;
+  onChange(ev: any) {
+    let password = generate({
+      length: ev.detail.value,
+      numbers: true,
+      uppercase: true,
+      symbols: true
+    })
+    console.log(password)
   }
 }
