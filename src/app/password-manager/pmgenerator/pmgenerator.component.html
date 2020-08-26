@@ -20,26 +20,22 @@
       </ion-col>
       <ion-col>
         <ion-text style="font-family: 'IBM Plex Mono'">Password Generator (from 8 characters to 64 characters)</ion-text>
-        <ion-range min="8" max="64" step="1" debounce="750" pin="true" color="dark" (ionChange)="onChange($event)" [(ngModel)]="display">
+        <ion-range min="8" max="64" step="1" debounce="750" pin="true" color="dark" (ionChange)="onChange($event)">
           <ion-label slot="start">8</ion-label>
           <ion-label slot="end">64</ion-label>
         </ion-range>
-        <ion-text style="font-family: 'IBM Plex Mono';">{{inputtedNumber}}</ion-text>
-        <ion-row>
+        <ion-text style="font-family: 'IBM Plex Mono'; padding-left: 15px;">{{password}}</ion-text>
+        <ion-button color="dark" fill="clear" (click)="copyClipboard()" style="padding-bottom: 10px;">
+          <ion-icon name="clipboard-outline"></ion-icon>
+        </ion-button>
+        <br>
+        <ion-row style="padding-left: 15px;">
           <ion-list>
             <ion-list-header style="font-family: 'IBM Plex Mono'; font-size: 16px;">Options</ion-list-header>
-              <ion-item>
-                <ion-label style="font-size: 14px; font-family: 'IBM Plex Mono'">Add Uppercase Characters (A-Z)</ion-label>
-                <ion-checkbox slot="start"></ion-checkbox>
+              <ion-item *ngFor="let entry of form">
+                <ion-label style="font-size: 14px; font-family: 'IBM Plex Mono'">{{entry.val}}</ion-label>
+                <ion-checkbox slot="start" [(ngModel)]="entry.isChecked"></ion-checkbox>
               </ion-item>
-              <ion-item>
-                <ion-label style="font-size: 14px; font-family: 'IBM Plex Mono'">Add Numbers (0-9)</ion-label>
-                <ion-checkbox slot="start"></ion-checkbox>
-              </ion-item>
-            <ion-item>
-              <ion-label style="font-size: 14px; font-family: 'IBM Plex Mono'">Add Special Characters (e.g. @, #, !, %)</ion-label>
-              <ion-checkbox slot="start"></ion-checkbox>
-            </ion-item>
           </ion-list>
         </ion-row>
       </ion-col>

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { generate } from 'generate-password-browser'
+import { ClipboardService } from 'ngx-clipboard'
 
 export class Preview {
-  display: any
+  
 }
 
 @Component({
@@ -15,7 +16,7 @@ export class PMGeneratorComponent {
   // get system.clock time and update every 1 second //
 
   today: number = Date.now();
-  constructor() {
+  constructor(private _clipboardService: ClipboardService) {
     setInterval(() => { this.today = Date.now() }, 1);
   }
 
@@ -41,15 +42,28 @@ export class PMGeneratorComponent {
   ]
 
   data: Array<Preview> = []
-  inputtedNumber: number
+  password: string
+
+  public form = [
+    {val: 'Add Numbers (0-9)', isChecked: false},
+    {val: 'Add Uppercase (A-Z)', isChecked: false}, 
+    {val: 'Add Special Characters (@, $, +, }, etc.)', isChecked: false},  
+  ]
+
 
   onChange(ev: any) {
-    let password = generate({
+    this.password = generate({
       length: ev.detail.value,
-      numbers: true,
-      uppercase: true,
-      symbols: true
+      numbers: this.form[0].isChecked,
+      uppercase: this.form[1].isChecked,
+      symbols: this.form[2].isChecked
     })
-    console.log(password)
+    
+    this.data.push(this.password)
+    console.log(this.password)
+  }
+
+  copyClipboard() {
+    this._clipboardService.copy(this.password)
   }
 }
