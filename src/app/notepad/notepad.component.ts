@@ -13,6 +13,10 @@ export class Preview {
 })
 export class NotepadComponent {
 
+  toggle(ev) {
+    document.body.classList.toggle('dark', ev.detail.checked);
+  }
+
   // ngIf boolean for when moreInfo() button is clicked //
 
   isShowText = true

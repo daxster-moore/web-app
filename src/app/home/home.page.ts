@@ -6,6 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  toggle(ev) {
+    document.body.classList.toggle('dark', ev.detail.checked);
+  }
 
+  today: number = Date.now();
+  constructor() {
+  setInterval(() => {this.today = Date.now()}, 1);
+  }
 }
 

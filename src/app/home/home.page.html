@@ -1,3 +1,5 @@
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500;600;700&display=swap" rel="stylesheet">
+
 <ion-content>
   <ion-avatar class="img-center">
     <img src="http://globalaccessibilitynews.com/files/2013/05/UBC-Logo.jpg">
@@ -8,5 +10,12 @@
     <ion-button color="dark" fill="clear" href="https://github.com/averagecar587">
       <ion-icon name="logo-github" size="large"></ion-icon>
     </ion-button>
+    <ion-button (click)="toggle($event)" fill="clear" color="dark" slot="end" size="medium"><ion-icon slot="start" name="moon" type="md"></ion-icon></ion-button>
   </div>
+  <br>
+  <ion-grid>
+    <ion-row class="ion-justify-content-center"> 
+      <p style="font-family: 'IBM Plex Mono';">{{today | date:'h:mm:ss a'}}</p>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -3,43 +3,46 @@
 <ion-toolbar>
   <ion-button fill="clear" color="dark" style="font-family: 'MoonReg';" [routerLink]="['/home']" type="md">DAXSTER
   </ion-button>
+  <ion-button (click)="toggle($event)" fill="clear" color="dark" slot="end" size="medium"><ion-icon slot="start" name="moon" type="md"></ion-icon></ion-button>
   <p slot="end" style="font-family: 'IBM Plex Mono';">{{today | date:'h:mm:ss a'}}</p>
 </ion-toolbar>
 
-<div style="padding-bottom: 800px; overflow-y: scroll; height: 100%;">
-  <ion-button fill="clear" color="dark" style="font-family: 'MoonReg'; padding-top: 15px; padding-left: 5px;"
+<ion-content>
+
+  <div style="padding-bottom: 800px; overflow-y: scroll; height: 100%;">
+    <ion-button fill="clear" color="dark" style="font-family: 'MoonReg'; padding-top: 15px; padding-left: 5px;"
     [routerLink]="['/projects']" type="md">
     <ion-icon name="arrow-back-sharp"></ion-icon> Back to Projects
   </ion-button>
-
+  
 
   <!-- ngForm that takes in user input -->
-
+  
   <form (ngSubmit)="onSubmit()" #profileForm="ngForm">
     <tr style="padding-left: 100px;">
       <td style="padding-top: 50px; padding-left: 75px;">
         <ion-textarea required placeholder="Title..?" wrap="off" rows="1" autoGrow="false" maxlength="24"
-          [(ngModel)]="title" spellcheck="false" name="title"></ion-textarea>
+        [(ngModel)]="title" spellcheck="false" name="title"></ion-textarea>
         <ion-textarea required placeholder="Enter text here" wrap="hard" mode="ios" [(ngModel)]="text"
-          spellcheck="false" rows="17" name="text"></ion-textarea>
+        spellcheck="false" rows="17" name="text"></ion-textarea>
       </td>
-
+      
       <!-- addNote submit function that takes in item.title & item.text  -->
-
+      
       <td style="padding-top: 60px; padding-left: 15px; width: 300px; height: 40px;">
         <ion-button type="Submit" color="dark" fill="clear" style="font-family: 'MoonReg';" (click)="addNote()"
-          [disabled]="!profileForm.valid">
-          <ion-icon name="add-outline"></ion-icon> Submit Note
-        </ion-button>
+        [disabled]="!profileForm.valid">
+        <ion-icon name="add-outline"></ion-icon> Submit Note
+      </ion-button>
       </td>
       <td style="padding-top: 60px; padding-left: 100px;">
-
-      <!-- 
+        
+        <!-- 
       - Interpolation that displays ts display.title
       - moreInfo submit function that displays display.text on (click)
       - Remove button that deletes both display.title & display.text in the most recent position of the array
-     -->
-
+    -->
+    
     <tr>
       <ion-grid>
         <ion-row *ngFor="let item of data">
@@ -48,21 +51,22 @@
               <ion-icon name="caret-down-outline"></ion-icon>
             </ion-button>
             <ion-text
-              style="padding-bottom: -200px; padding-left: 15px; font-size: 25px; font-family: 'IBM Plex Mono'; font-weight: 600;"
-              readonly>{{item.title}}</ion-text>
+            style="padding-bottom: -200px; padding-left: 15px; font-size: 25px; font-family: 'IBM Plex Mono'; font-weight: 600;"
+            readonly>{{item.title}}</ion-text>
           </ion-row>
           <ion-row>
             <ion-text
-              style="font-family: 'IBM Plex Mono'; font-weight: 300; font-size: 18px; display: block; padding-right: 10px; padding-top: 40px; padding-bottom: 50px;"
+            style="font-family: 'IBM Plex Mono'; font-weight: 300; font-size: 18px; display: block; padding-right: 10px; padding-top: 40px; padding-bottom: 50px;"
               [hidden]="item.isShowText">{{item.text}}</ion-text>
+            </ion-row>
+            <ion-button (click)="delNote()" fill="clear" color="dark" style="padding-left: 50px;">
+              <ion-icon name="remove-circle-outline"></ion-icon>
+            </ion-button>
           </ion-row>
-          <ion-button (click)="delNote()" fill="clear" color="dark" style="padding-left: 50px;">
-            <ion-icon name="remove-circle-outline"></ion-icon>
-          </ion-button>
-        </ion-row>
-      </ion-grid>
-    </tr>
+        </ion-grid>
+      </tr>
     </td>
-    </tr>
-  </form>
+  </tr>
+</form>
 </div>
+</ion-content>
