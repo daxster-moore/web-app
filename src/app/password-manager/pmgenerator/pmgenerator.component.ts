@@ -20,6 +20,10 @@ export class PMGeneratorComponent {
     setInterval(() => { this.today = Date.now() }, 1);
   }
 
+  toggle(ev) {
+    document.body.classList.toggle('dark', ev.detail.checked);
+  }
+
   // menu interpolation URL and title handling //
 
   public appPages = [
@@ -32,10 +36,6 @@ export class PMGeneratorComponent {
       url: '/password-manager/generator'
     },
     {
-      title: 'Options',
-      url: '/password-manager/options'
-    },
-    {
       title: 'Back to Projects',
       url: '/projects'
     }
@@ -44,12 +44,15 @@ export class PMGeneratorComponent {
   data: Array<Preview> = []
   password: string
 
+  // password options //
+
   public form = [
     {val: 'Add Numbers (0-9)', isChecked: false},
     {val: 'Add Uppercase (A-Z)', isChecked: false}, 
     {val: 'Add Special Characters (@, $, +, }, etc.)', isChecked: false},  
   ]
 
+  // everytime the ion-range moves, the password generation gets updated //
 
   onChange(ev: any) {
     this.password = generate({
@@ -62,6 +65,8 @@ export class PMGeneratorComponent {
     this.data.push(this.password)
     console.log(this.password)
   }
+
+  // button to copy //
 
   copyClipboard() {
     this._clipboardService.copy(this.password)

@@ -20,6 +20,10 @@ export class PasswordManagerComponent {
     setInterval(() => { this.today = Date.now() }, 1);
   }
 
+  toggle(ev) {
+    document.body.classList.toggle('dark', ev.detail.checked);
+  }
+
   // menu interpolation URL and title handling //
 
   public appPages = [
@@ -30,10 +34,6 @@ export class PasswordManagerComponent {
     {
       title: 'Password Generator',
       url: '/password-manager/generator'
-    },
-    {
-      title: 'Options',
-      url: '/password-manager/options'
     },
     {
       title: 'Back to Projects',
@@ -68,6 +68,8 @@ export class PasswordManagerComponent {
     this.email = ''
     this.password = ''
   }
+
+  // account details and a button to close account details //
 
   details() {
     this.accountDetails = false

@@ -11,6 +11,10 @@ export class ProjectsComponent {
     setInterval(() => { this.today = Date.now() }, 1);
   }
 
+  toggle(ev) {
+    document.body.classList.toggle('dark', ev.detail.checked);
+  }
+
   public applications = [
     {
       title: 'Notepad Application',

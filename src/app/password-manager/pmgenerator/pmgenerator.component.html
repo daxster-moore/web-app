@@ -5,12 +5,16 @@
 <ion-toolbar>
   <ion-button fill="clear" color="dark" style="font-family: 'MoonReg';" [routerLink]="['/home']" type="md">DAXSTER
   </ion-button>
+  <ion-button (click)="toggle($event)" fill="clear" color="dark" slot="end" size="medium"><ion-icon slot="start" name="moon-outline" type="md"></ion-icon></ion-button>
   <p slot="end" style="font-family: 'IBM Plex Mono';">{{today | date:'h:mm:ss a'}}</p>
 </ion-toolbar>
 
 <ion-content>
   <ion-grid>
     <ion-row>
+
+      <!-- password manager menu -->
+
       <ion-col style="max-width: 250px; border-right: 1px #212121 solid; height: 100vh">
         <ion-row style="padding-top: 30px; padding-left: 30px; max-width: 250px;" *ngFor="let p of appPages">
           <ion-button fill="clear" color="dark" [routerLink]="[p.url]">
@@ -18,6 +22,9 @@
           </ion-button>
         </ion-row>
       </ion-col>
+
+      <!-- ion-range as inputted number, and password generator (includes options to strengthen password) -->
+
       <ion-col>
         <ion-text style="font-family: 'IBM Plex Mono'">Password Generator (from 8 characters to 64 characters)</ion-text>
         <ion-range min="8" max="64" step="1" debounce="750" pin="true" color="dark" (ionChange)="onChange($event)">
@@ -39,6 +46,8 @@
           </ion-list>
         </ion-row>
       </ion-col>
+
+    
     </ion-row>
   </ion-grid>
 </ion-content>
